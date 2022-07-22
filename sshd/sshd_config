@@ -1,0 +1,8 @@
+Port 2022
+UsePAM no
+KbdInteractiveAuthentication no
+PasswordAuthentication no
+PubkeyAuthentication yes
+X11Forwarding yes
+AuthorizedKeysFile .ssh/authorized_keys
+Subsystem sftp /usr/lib/ssh/sftp-server

@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenSSH Daemon as user
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/sshd -D -f %h/.config/sshd/sshd_config -o PidFile=%t/sshd.pid
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=default.target
