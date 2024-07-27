@@ -26,7 +26,6 @@ install_sshd() {
         install_sshd_config
     fi
 
-    generate_host_key dsa
     generate_host_key ecdsa
     generate_host_key ed25519
     generate_host_key rsa -b 4096
@@ -36,7 +35,6 @@ install_sshd_config() {
     mkdir -p "$SSHD_DIR"
     echo "Installing new configuration file at: $SSHD_CONF"
     cat > "$SSHD_CONF" <<CONF
-HostKey $SSHD_DIR/ssh_host_dsa_key
 HostKey $SSHD_DIR/ssh_host_ecdsa_key
 HostKey $SSHD_DIR/ssh_host_ed25519_key
 HostKey $SSHD_DIR/ssh_host_rsa_key
